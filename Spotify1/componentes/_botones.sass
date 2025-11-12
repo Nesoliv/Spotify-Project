@@ -1,0 +1,172 @@
+@use '../utilidades/variables' as *
+@use '../componentes/mixins'
+
+//Boton del lo
+.btn_logo
+    width: $espacioLLG
+    height: $espacioLLG
+    border: none
+    background: $boton-transparente
+    fill: $colorClaro
+    margin: 10px 0 0 20px
+    &--spotify
+        &:hover
+            cursor: pointer
+
+//Botones del header
+.btn
+    width: $espacioLLG
+    height: $espacioLLG
+    &--inicio
+        padding: 10px
+        background: $colorSecundario
+        border-radius: 50%
+        border: 1px solid $colorSecundario
+        fill: $colorTextoSecundario
+        margin-left: $espacioMD
+        margin-top: $espacioXS
+        &:hover
+            fill: lighten($colorClaro, 15%)
+            cursor: pointer
+            transform: scale(1.1)
+    &--novedades
+        border: none
+        background: $boton-transparente
+        fill: lighten($colorSecundario, 50%)
+        padding: 10px
+        &:hover
+            fill: lighten($colorClaro, 15%)
+            cursor: pointer
+    &--explorar
+        padding: 12px
+        fill: lighten($colorSecundario, 50px)
+        border: none
+        border-radius: 0 50px 50px 0
+        background: $colorSecundario
+        &:hover
+            fill: lighten($colorSecundario, 60%)
+    &_premium
+        border: none
+        border-radius: 30px
+        background: lighten($colorClaro, 50%)
+        color: lighten($colorPrincipal, 10%)
+        font-weight: bold
+        margin-right: 40px
+        width: 150px
+        height: 35px
+        &:hover
+            transform: scale(1.1)
+    &--lupa
+        margin-left: $espacioSM
+        border-radius: 50px 0 0 50px
+        border: none
+        background: $colorSecundario
+        color: lighten($colorSecundario, 50%)
+        font-size: $espacioLG
+    &_usuario
+        border-radius: 50px
+        margin-right: 5px
+        background: lighten($colorSecundario, 10%)
+        border: none
+        color: $colorClaro
+        font-weight: bold
+        &:hover
+            cursor: pointer
+            transform: scale(1.1)
+    &_instalar
+        font-size: 14px
+        font-weight: bold
+        @include mixins.escalado()
+
+//Botones del aside
+.contenedorBiblioteca
+    &--crear
+        @include mixins.btnCrear()
+        &:hover
+            background: lighten($colorSecundario, 15%)
+            cursor: pointer
+    &--btn
+        background-color: $boton-transparente
+        width: 33px
+        height: 33px
+        border: none
+        cursor: pointer
+        color: lighten($colorSecundario, 50%)
+        font-size: 16px
+        margin-left: 10px
+        &:hover
+            background: lighten($colorSecundario, 15%)
+            color: $colorClaro
+            border-radius: 50px
+
+//Boton de play verde (hover)
+.emisorasContenedor_play
+    width: 48px
+    height: 48px
+    border: none
+    border-radius: 50px
+    background-color: $verde-hover
+    position: absolute
+    bottom: 85px
+    right: 30px
+    opacity: 0
+    transform: translateY(20px)
+    transition: all 0.3s ease
+    i
+        font-size: 20px
+
+//Boton de redes en la seccion footer
+.btn_redes
+    width: 30px
+    height: 30px
+    border: none
+    background: lighten($colorSecundario, 30%)
+    border-radius: 40px
+    margin: 5px
+    i
+        color: $colorClaro
+
+//Botones del reproductor
+.grilla_botones
+    display: grid
+    grid-template-columns: auto 1fr
+    gap: 150px
+    padding: 20px
+    margin-left: 500px
+    &_control
+        display: flex
+        gap: 15px
+        align-items: center
+    .derecha
+        display: flex
+        margin-left: 150px
+        gap: 2px
+    button
+        background: $boton-transparente
+        border: none
+        cursor: pointer
+        padding: 10px
+        color: lighten($colorSecundario, 30%)
+        font-size: 18px
+        transition: transform 0.2s
+
+@media (max-width: 768px)
+    .btn--explorar
+        display: none
+    .btn--lupa
+        border-radius: 50px
+        margin-right: 10px
+    .btn_instalar
+        display: none
+    .btn--novedades
+        margin-left: -20px
+    .btn_premium
+        margin-right: 30px
+
+@media screen and (min-width: 769px) and (max-width: 1023px)
+    .btn--lupa
+        border-radius: 50px
+        margin-right: 10px
+    .btn--explorar
+        border-radius: 50px
+        margin-left: 10px

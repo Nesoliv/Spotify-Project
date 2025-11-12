@@ -1,0 +1,24 @@
+@use '../utilidades/variables'
+@use '../componentes/mixins'
+
+.contenedor
+    @include mixins.displayCenter()
+    width: 100dvw
+    &_busqueda
+        @include mixins.displayCenter()
+    .searchbar
+        height: 48px
+        width: 390px
+        border-right: none
+        border: none
+        background-color: variables.$colorSecundario
+
+input
+    user-select: none
+    color: variables.$colorClaro
+    font-size: variables.$espacioMD
+    &::placeholder
+        font-size: variables.$espacioMD
+        color: lighten(variables.$colorTextoSecundario, 10%)
+    &:focus
+        outline: none

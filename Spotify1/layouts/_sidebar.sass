@@ -1,0 +1,67 @@
+@use '../componentes/botones'
+@use '../componentes/mixins'
+@use '../utilidades/variables' as *
+
+aside
+    background: $colorSecundario
+    height: 75dvh
+    overflow-y: scroll
+    border: none
+    border-radius: $espacioSM
+    margin: 16px 4px 0 10px
+    @include mixins.scrollbarra()
+
+.contenedorBiblioteca
+    @include mixins.displayCenter()
+    padding: 10px 14px 2px
+    &--titulo
+        font-size: $espacioMD
+        &:hover
+            cursor: pointer
+    &--recientes
+        font-size: 14px
+        @include mixins.escalado()
+    &--icono
+        background: $boton-transparente
+        border: none
+
+.contenedorBiblioteca_lista
+    display: flex
+    align-items: center
+    gap: $espacioSM
+    &_item
+        @include mixins.flexItem()
+        background: lighten($colorSecundario, 10%)
+        border-radius: 50px
+        font-size: 14px
+        height: 35px
+        width: 70px
+        list-style: none
+        padding: $espacioXS
+        &:hover
+            cursor: pointer
+            background: lighten($colorSecundario, 15%)
+    &--todo
+        background-color: $colorClaro
+
+.listaReproduccion
+    @include mixins.ListRepro()
+    &:hover
+        background: lighten($colorSecundario, 15%)
+        cursor: pointer
+    &_icono
+        width: $espacioLLG
+        height: $espacioLLG
+        background-color: $icono-color
+        @include mixins.justifyCenter()
+        border: none
+        border-radius: $espacioXS
+        i
+            color: $colorClaro
+    &--img
+        border-radius: 50px
+    &_titulo
+        font-size: $espacioMD
+    &_canciones
+        font-size: 14px
+        color: $colorTextoSecundario

@@ -1,0 +1,116 @@
+@use '../utilidades/variables' as *
+@use '../componentes/botones'
+@use '../componentes/mixins'
+
+
+.contenedorPrincipal
+    height: 75dvh
+    background: $colorSecundario
+    padding: $espacioMD
+    margin: 16px 10px 0 0 
+    border-radius: $espacioSM
+    overflow-y: scroll
+    @include mixins.scrollbarra()
+    
+
+.titulo
+    margin: 14px
+    &:hover
+        cursor: pointer
+    &_span
+        font-size: 12px
+        color: lighten($colorSecundario, 30%)
+
+
+.emisorasContenedor
+    display: flex
+    flex-direction: row
+    &_item
+        @include mixins.flexItem()
+        flex-direction: column
+        position: relative
+        width: 175px
+        height: 230px
+        gap: 10px
+        &:hover
+            border-radius: 10px
+            background: lighten($colorSecundario, 10%)
+            .emisorasContenedor_play
+                opacity: 1
+                transform: translateY(0)
+                box-shadow: 5px 5px 20px black
+    &_texto
+        @include mixins.flexItem()
+        font-size: 14px
+        color: lighten($colorSecundario, 40%)
+        margin: 10px
+    &_artista
+        display: flex
+        flex-direction: row
+        &--nombre
+            font-size: 14px
+            color: lighten($colorSecundario, 30%)
+    .imagen
+        width: 150px
+        height: 150px
+        border-radius: 10px
+        &--circulo
+            border-radius: 70px
+
+.separador
+    border: none
+    height: 1px
+    background: lighten($colorSecundario, 20%)
+    margin: 20px
+
+.grilla_contenedor
+    display: grid
+    grid-template-columns: repeat(5, 1fr)
+    gap: 20px
+    a
+        text-decoration: none
+        color: lighten($colorSecundario, 30%)
+        margin: 10px
+        :hover
+            cursor: pointer
+    &_lista
+        @include mixins.flexColumn()
+
+.titulo_btn
+    color: lighten($colorSecundario, 30%)
+
+.gridArea
+    @include mixins.gridLayout()
+    #barra_busqueda
+        grid-area: barra_busqueda
+    #lateral
+        grid-area: lateral
+    #contenido
+        grid-area: contenido
+    #reproductor
+        grid-area: reproductor
+
+@media (max-width: 768px)
+    .gridArea
+        @include mixins.gridQuery()
+    aside
+        @include mixins.flexColumn()
+        place-content: center
+        place-items: center
+        overflow-x: hidden
+        .contenedorBiblioteca_lista_item
+            display: none
+        .contenedorBiblioteca--recientes
+            display: none
+    .listaReproduccion_titulo
+        display: none
+    .listaReproduccion_canciones
+        display: none
+    .searchbar
+        display: none
+
+
+
+@media screen and (min-width: 769px) and (max-width: 1023px)
+    .searchbar
+        display: none
